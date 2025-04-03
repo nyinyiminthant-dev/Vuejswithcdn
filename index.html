@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+  <h1>Dynamic CSS</h1>
+  <h2>Example 1</h2>
+   <!--  <div v-on:click="available = !available" v-bind:class="{available: available}">
+    <span>Nyi</span> 
+   </div>   -->
+  
+   <h2>Example 2</h2>
+   <button v-on:click="nearby = !nearby">Toggel nearby</button>
+   <button v-on:click="available = !available">Toggel available</button>
+   <div v-bind:class="compClasses">
+    <span>Click</span>
+   </div>
+
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
