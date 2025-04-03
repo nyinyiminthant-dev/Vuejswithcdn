@@ -46,6 +46,12 @@
                 padding: 10px;
                 margin: 10px;
             }
+
+            .healthperson {
+               position: relative;
+               left: 200px;
+               bottom: 10px;
+            }
         </style>
 </head>
 <body>
@@ -59,17 +65,28 @@
 
   </div>
 
+  <div id="ghost">
+
+  </div>
+
+ 
+
   <!-- Bag Health -->
 
   <div id="bag-health">
-   <div v-bind:style="{width : health + '%'}"></div>
+   <div v-bind:style="{width : health + '%'}">
+    <h3 class="healthperson">{{health}}</h3>
+   </div>
   </div>
 
   <!-- Game Controls -->
    <div id="game-controls">
      
     <button v-on:click="punch" v-show="!end" class="btn btn-danger">Punch</button>
+    <button v-on:click="Knife" v-show="!end" class="btn btn-danger">Knife</button>
+    <button v-on:click="Gun" v-show="!end" class="btn btn-danger">Gun</button>
     <button v-on:click="restart" class="btn btn-success">Restart</button>
+   
    </div>
     </div>
 
@@ -80,7 +97,8 @@
             data: {
              message: 'Punch bag game.',
              health: 100,
-             end: false
+             end: false,
+            
 
             },
 
@@ -88,7 +106,7 @@
              punch: function() {
                 this.health -= 10;
 
-                if(this.health < 0) {
+                if(this.health == 0) {
                     this.end = true;
                 }
 
@@ -97,6 +115,23 @@
              restart: function() {
                 this.health = 100;
                 this.end = false;
+             },
+
+             Knife: function (){
+                this.health -= 20;
+                
+                if(this.health == 0) {
+                    this.end = true;
+                }
+             },
+
+             Gun: function () {
+                this.health -= 40;
+                
+                if(this.health <= 0) {
+                    this.health = 0;
+                    this.end = true;
+                }
              }
             },
 
